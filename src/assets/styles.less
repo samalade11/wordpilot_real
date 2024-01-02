@@ -1,0 +1,277 @@
+// src/styles.less
+@primary-color: #3498db;
+@icon-fontsize: 25px;
+
+body {
+//   background-color: red;
+    font-family: 'Poppins', sans-serif;
+}
+
+.active{
+    background-color: @primary-color !important;
+    color: white !important;
+}
+
+.my-navbar{
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    
+
+    // nested
+    .side-bar {
+        background-color: darken(@primary-color, 40%);
+        width: fit-content;
+        transition: 0.3s;
+        
+        .exit-btn{
+            // display: none !important;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            display: flex;
+            place-content: end;
+            padding: 0 10px;
+
+            i{
+                font-size: @icon-fontsize;
+                cursor: pointer;
+            }
+        }
+        // 
+        .sidenav-img{
+            display: flex;
+            place-content: center;
+            margin: 30px 30px;
+
+            // 
+            img{
+                width: 250px;
+            }
+        }
+        .sidenav-hr{
+            height: 0px;
+            border: solid rgba(129, 97, 97, 0.229)  1px !important;
+            margin: 0 20px;
+            margin-bottom: 40px;
+        }
+        .sidenav-list{
+            display: flex;
+            color: @primary-color - 10;
+            gap: 12px;
+            cursor: pointer;
+            margin: 15px 20px;
+            padding: 10px 15px;
+            border-radius: 3px;
+            transition:  0.3s;
+
+            &:hover {
+                color: white;
+                background-color: @primary-color;
+              }
+            // 
+            i{
+                height: fit-content;
+                margin: auto 0;
+                font-size: @icon-fontsize;
+            }
+            p{
+                height: fit-content;
+                margin: auto 0;
+                font-size: @icon-fontsize - 10;
+            }
+        }
+    }
+    
+}
+
+.main-content{
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.nav-bar{
+    background-color: white;
+    width: 100%;
+    // border-bottom: black solid 1px;
+    display: flex;
+    padding: 20px 40px;
+    // box-shadow: 0 10px 10px rgba(125, 119, 119, 0.358); 
+    gap: 20px;
+    position: sticky;
+    top: 0px;
+
+    
+    // 
+    .nav-part1{
+        display: flex;
+        height: fit-content;
+        margin: auto 0;
+        // background-color: red;
+        gap: 30px;
+        
+
+        .sidenav-btn{
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+
+            i{
+                font-size: @icon-fontsize + 5;
+            }
+        }
+
+        select{
+            border: none;
+            outline: none;
+            color: gray;
+            font-weight: 500;
+            font-size: 16px;
+            padding: 7px 10px;
+            // width: 10%;
+            width: 250px;
+        }
+        
+        
+    }
+
+
+    // 
+    .nav-part2{
+        display: flex;
+        // background-color: red;
+        gap: 30px;
+        width: 100%;
+        place-content: end;
+
+        .custom-search{
+            display: flex;
+            height: fit-content;
+            margin: auto 0;
+
+            input{
+                border: none;
+                outline: none;
+                color: gray;
+                font-weight: 500;
+                font-size: 16px;
+                padding: 7px 10px;
+                width: 300px;
+            }
+            div{
+                display: flex;
+                background-color: @primary-color;
+                
+                color: white;
+                gap: 10px;
+                padding: 7px 10px;
+                cursor: pointer;
+
+                p{
+                    height: fit-content;
+                    margin: auto 0;
+                    font-size: @icon-fontsize - 11;
+                }
+                i{
+                    height: fit-content;
+                    margin: auto 0;
+                    font-size: @icon-fontsize - 5;
+                }
+            }
+        }
+
+        .bell-icon{
+            font-size: @icon-fontsize;
+            margin: auto 0;
+            height: fit-content;
+            color: gray;
+        }
+        .info-icon{
+            font-size: @icon-fontsize;
+            margin: auto 0;
+            height: fit-content;
+            color: gray;
+        }
+        
+        .user-corner{
+            display: flex;
+            gap: 10px;
+            img{
+                height: 55px;
+                width: 55px;
+                border-radius: 50%;
+            }
+            div{
+                margin: auto 0;
+                height: fit-content;
+                line-height: 18px;
+                p{
+                    color: rgba(0, 0, 0, 0.701);
+                    font-size: 14px;
+                    font-weight: 600;
+                    font-stretch: condensed;
+                }
+                span{
+                    color: rgba(0, 0, 0, 0.701);
+                    font-size: 13px;
+                }
+            }
+        }
+
+    }
+}
+
+
+
+
+
+// responsive
+
+@media screen and (max-width: 1024px) {
+    .side-bar{
+        position: fixed;
+        height: 100vh;
+        z-index: 1;
+        width: fit-content !important;
+        transition: 0.3s;
+    }
+    
+    .nav-bar{
+        display: block;
+        .nav-part1{
+            place-content: start;
+        }
+        .nav-part2{
+            margin-top: 20px;
+            // background-color: green !important;
+            place-content: start;
+        }
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    
+  }
+
+  @media screen and (max-width: 640px) {
+    .nav-bar{
+        
+        
+        .nav-part2{
+            display: block;
+            .custom-search{
+                height: fit-content;
+            }
+            i{
+                padding: 10px 0px !important;
+            }
+        }
+    }
+  }
+
+
+  @media screen and (min-width: 1024px) {
+    .exit-btn{
+        display: none !important;
+    }
+    
+  }
